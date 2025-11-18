@@ -24,7 +24,7 @@ export default function Footer(){
               </svg>
             </button>
 
-            <a className={styles.btn} href="https://www.bangid.com" target="_blank" rel="noopener noreferrer">
+            <a className={styles.btn} href="https://www.bangid.com" target="_blank" rel="noopener noreferrer" textDecoration="none">
               <span>Visit Us</span>
               <svg className={`${styles.arrow} ${styles.rotate}`} viewBox="0 0 216 207" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="28" aria-hidden="true">
                 <path d="M108.341 4.19165L207.325 103.175" stroke="currentColor" strokeWidth="11.8557" strokeLinecap="round" strokeLinejoin="round" />

@@ -75,6 +75,7 @@
     font-weight: 400;
     line-height: 138%; /* 77.879px */
     letter-spacing: -3.386px;
+  text-decoration: none;
 }
 
 .btn .arrow {
@@ -85,9 +86,10 @@
 
 /* rotate helper for specific arrow icons */
 .rotate {
-  transform: rotate(-45deg);
+  transform: rotate(45deg);
   transform-origin: center;
   display: inline-block;
+  transition: transform 180ms ease;
 }
 
 .imgWrap {

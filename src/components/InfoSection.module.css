@@ -126,6 +126,7 @@
 
     .sectionTitle {
         text-align: left;
+        line-height: 42px;
     }
 
     .pill{
@@ -218,5 +219,10 @@
       border-radius: 0 !important;
       width: 100%;
       gap: 8px;
+      justify-content: flex-start;
+    }
+
+    .sectionTitle {
+      margin-bottom: 32px;
     }
 }

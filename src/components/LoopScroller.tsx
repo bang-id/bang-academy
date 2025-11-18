@@ -11,6 +11,7 @@ export default function LoopScroller({ children }: Props) {
   const lastObservedHeight = useRef(0)
   const [showDuplicate, setShowDuplicate] = useState(false)
   const showDuplicateRef = useRef(false)
+  const duplicateRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     const container = containerRef.current
@@ -120,11 +121,17 @@ export default function LoopScroller({ children }: Props) {
     }
   }, [])
 
+  // NOTE: interaction-disabling logic removed for testing. If the duplicate
+  // copy was previously made non-interactive, that code was interfering with
+  // clicks during some scroll positions. We removed it so you can test behavior
+  // with both copies interactive. For a robust fix, we'll need to toggle
+  // interactivity based on which copy is currently visible.
+
   return (
     <div ref={containerRef}>
       {showDuplicate ? (
         <>
-          <div aria-hidden style={{ pointerEvents: 'none' }}>{children}</div>
+          <div>{children}</div>
           <div>{children}</div>
         </>
       ) : (

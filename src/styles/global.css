@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
+:root {
+  /* `--vh` will be set in JS to 1% of the inner viewport height (px). Use as `calc(var(--vh) * 100)` */
+  --vh: 1vh;
+}
+
 html,
 body,
 #root {
-  height: 100%;
+  /* Use the computed dynamic viewport height to avoid mobile address-bar layout jumps */
+  height: calc(var(--vh) * 100);
   margin: 0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
 }

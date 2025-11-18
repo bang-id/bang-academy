@@ -7,6 +7,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .sectionTitle {
@@ -96,7 +98,7 @@
 
 .rowContent {
   flex: 1;
-  font-size: clamp(20px, 2.2vw, 24px);
+  font-size: clamp(18px, 2vw, 20px);
   color: #000000bd;
   font-family: Inter;
   font-style: normal;

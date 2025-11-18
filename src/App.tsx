@@ -6,20 +6,19 @@ import MediaGrid from './components/MediaGrid'
 import FAQ from './components/FAQ'
 import CTAButton from './components/CTAButton'
 import FadeIn from './components/FadeIn'
-import LoopScroller from './components/LoopScroller'
+import Footer from './components/Footer'
 
 export default function App() {
   return (
     <div>
       <Header />
       <main>
-        <LoopScroller>
-          <FadeIn playOnLoad><Hero /></FadeIn>
-          <FadeIn><InfoSection /></FadeIn>
-          <FadeIn><CTAButton /></FadeIn>
-          <MediaGrid />
-          <FadeIn><FAQ /></FadeIn>
-        </LoopScroller>
+        <FadeIn playOnLoad><Hero /></FadeIn>
+        <FadeIn><InfoSection /></FadeIn>
+        <FadeIn><CTAButton /></FadeIn>
+        <MediaGrid />
+        <FadeIn><FAQ /></FadeIn>
+        <Footer />
       </main>
     </div>
   )

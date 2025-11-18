@@ -5,7 +5,9 @@ import useParallax from '../hooks/useParallax'
 import useGsapRotate from '../hooks/useGsapRotate'
 
 export default function Hero(){
-  const { ref: parallaxRef, offset } = useParallax({ speed: -0.1 , direction: 'up' })
+  // Increase speed for a stronger parallax effect. Use a positive speed
+  // and set `direction` to 'up' to move the image opposite to scroll.
+  const { ref: parallaxRef, offset } = useParallax({ speed: 0.45, direction: 'up' })
   const rotRef = useRef<HTMLDivElement | null>(null)
   // subtle rotation on scroll for the hero image (animate the wrapper to avoid img-specific CSS conflicts)
   useGsapRotate(rotRef, { maxRotation: 6, start: 'top bottom', end: 'bottom top', scrub: true })

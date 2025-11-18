@@ -41,6 +41,7 @@
   pointer-events: none;
   transform: translateY(clamp(-180px, -10vw, -320px));
   z-index: 1;
+  max-height: 800px;
 }
 
 .bgImage > div {

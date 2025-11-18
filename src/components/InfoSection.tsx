@@ -25,14 +25,14 @@ export default function InfoSection(){
       what: 'Master the full spectrum of digital design—from strategy to execution. Learn design systems, accessibility, motion design, and how to collaborate with developers and stakeholders.\n\nOver 18 weeks, you\'ll work on real client projects involving website redesigns, app interfaces, brand guidelines, and digital experiences. You\'ll use industry tools, learn responsive design best practices, and understand how to scale design solutions.',
       get: 'A certificate of completion.\nWork samples that you can include in your portfolio*.\nA global studio experience working with real businesses from around the world.\nHands-on experience with modern design tools and workflows.\nNetworking with designers and strategists from global companies.\n\n*Subject to NDAs with customers',
       openings: '2',
-      price: 'INR 6,500/mo for 4 months',
+      price: 'INR 7,000/mo for 4 months',
     },
     'Demand Generation': {
       who: 'Marketing, business, or communications students in their final year or recent graduates interested in growth, data-driven marketing, and how to build businesses. You\'re analytical, curious about user behavior, and want hands-on experience.',
       what: 'Learn the fundamentals of demand generation—from strategy to execution. Master tools like CRM, marketing automation, analytics, and outreach strategies used by scaling companies.\n\nOver 18 weeks, you\'ll run real campaigns, analyze user data, build landing pages, manage customer funnels, and present results to stakeholders. Work with mentors from fast-growing startups and established companies.',
       get: 'A certificate of completion.\nCampaign work samples that you can showcase*.\nHands-on experience with marketing automation and analytics tools.\nA letter of recommendation for business school or growth roles.\nNetworking with marketers, founders, and growth leaders.\n\n*Subject to NDAs with customers',
       openings: '2',
-      price: 'INR 5,500/mo for 4 months',
+      price: 'INR 7,000/mo for 4 months',
     }
   }
 

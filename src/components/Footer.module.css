@@ -1,0 +1,154 @@
+:root {
+  --footer-gap: 48px;
+}
+
+.wrap {
+  padding: 48px 60px;
+  padding-bottom: 30px;
+}
+
+.grid {
+  display: grid;
+  /* 7-column layout: brand occupies 4 columns, right side occupies 3 columns */
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--footer-gap);
+  align-items: start;
+
+}
+
+.brand {
+  color: #212121;
+  font-family: Inter;
+  /* responsive large display heading using clamp */
+  font-size: clamp(64px, 12vw, 176px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 0.95;
+  grid-column: 1 / span 4; /* occupy 4 of 7 columns */
+
+  /* letter-spacing should scale with viewport but be constrained */
+  letter-spacing: clamp(-14px, -2vw, -4px);
+}
+
+.right {
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 24px;
+  grid-column: 5 / span 3; /* occupy the remaining 3 columns */
+}
+
+.content{
+    flex: 1;
+    font-size: clamp(18px, 2.2vw, 20px);
+    color: #000000bd;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 33.6px */
+    letter-spacing: -0.24px;
+    max-width:722px;
+
+    margin-bottom: 40px;
+}
+
+.ctaRow {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 12px;
+    background: transparent;
+    border: none;
+    color: #111;
+    font-size: clamp(20px, 3.2vw, 28px);
+    cursor: pointer;
+    color: #212121;
+    font-family: Inter;
+    font-size: clamp(34px, 4vw, 56px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 138%; /* 77.879px */
+    letter-spacing: -3.386px;
+}
+
+.btn .arrow {
+  width: clamp(42px, 2vw, 60px);
+  height: auto;
+
+}
+
+/* rotate helper for specific arrow icons */
+.rotate {
+  transform: rotate(-45deg);
+  transform-origin: center;
+  display: inline-block;
+}
+
+.imgWrap {
+  width: 100%;
+  display: block;
+}
+
+.imgWrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.bottom {
+  margin-top: 36px;
+}
+
+.bottomInner {
+  border-top: 1px solid #e6e6e6;
+  padding-top: 18px;
+  margin: 0 auto;
+}
+
+.copyright {
+  color: #666;
+  font-size: clamp(12px, 1.2vw, 14px);
+}
+
+
+@media (max-width: 1024px) {
+  .brand { font-size: clamp(56px, 11vw, 140px); letter-spacing: clamp(-12px, -2vw, -4px); }
+  /* .imgWrap img { max-height: 220px; } */
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+    .wrap {
+    padding: 32px 40px;
+    padding-bottom: 40px;
+ }
+
+  .right { grid-template-rows: auto auto; }
+  .brand { font-size: clamp(48px, 12vw, 80px); grid-column: 1 / -1; letter-spacing: clamp(-8px, -2vw, -2px); }
+  .right { grid-column: 1 / -1; }
+  .content { font-size: clamp(16px, 3.2vw, 18px); max-width: 100%; }
+  .btn { font-size: clamp(24px, 5.5vw, 36px); }
+  .btn .arrow { width: clamp(28px, 6vw, 40px); }
+  /* .imgWrap img { max-height: 180px; } */
+}
+
+@media (max-width: 480px) {
+  .wrap {
+    padding: 32px 20px;
+    padding-bottom: 20px;
+  }
+  .brand { font-size: clamp(36px, 14vw, 56px); letter-spacing: clamp(-4px, -2vw, -1px); }
+  .btn { font-size: clamp(18px, 6vw, 28px); letter-spacing: clamp(-2px, -2vw, 0px); }
+  .btn .arrow { width: clamp(22px, 8vw, 32px); }
+  .content { font-size: clamp(14px, 4.5vw, 16px); letter-spacing: 0px;}
+}

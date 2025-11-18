@@ -50,6 +50,18 @@ body {
   border-bottom: 1px solid #e6e6e6;
 }
 
+/* Fade + slide for each details container when it opens */
+.accordion details {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 360ms cubic-bezier(.2,.9,.3,1), transform 360ms cubic-bezier(.2,.9,.3,1);
+}
+
+.accordion details[open] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .accordion details p {
   max-height: 0;
   opacity: 0;
@@ -159,7 +171,7 @@ details[open] .icon .closed { opacity: 0; transform: translateY(6px) scale(.98);
 
 @media (max-width: 1024px) {
   .wrap {
-    padding: 40px 32px;
+    padding: 40px 60px;
   }
   .container {
     flex-direction: column;

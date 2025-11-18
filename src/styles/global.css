@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  background: #fff;
+}
+
+/* Hide native scrollbars but keep scrolling functionality
+   - Firefox: `scrollbar-width: none`
+   - IE/Edge: `-ms-overflow-style: none`
+   - WebKit (Chrome/Safari/Opera): hide via ::-webkit-scrollbar */
+html, body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}

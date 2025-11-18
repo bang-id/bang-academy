@@ -1,0 +1,19 @@
+.root {
+  opacity: 0;
+  transform: translateY(var(--fade-y, 48px)) scale(var(--fade-scale, 0.98));
+  transition-property: opacity, transform;
+  transition-timing-function: var(--fade-easing, cubic-bezier(.2,.9,.3,1));
+  transition-duration: var(--fade-duration, 500ms);
+  transition-delay: var(--fade-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.root.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Separator animation is handled by the component-specific stylesheet via
+   an attribute on the FadeIn wrapper (`data-fade-visible`). This avoids
+   cross-module class selector issues with CSS Modules. */
+

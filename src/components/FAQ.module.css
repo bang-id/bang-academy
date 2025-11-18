@@ -1,0 +1,229 @@
+
+/* General styles */
+body {
+  color: rgba(0, 0, 0, 0.80);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+}
+
+/* Responsive padding matches MediaGrid and Hero conventions */
+.wrap {
+  padding: 96px 60px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  min-height: 100vh;
+}
+
+.largeOnRight {
+  grid-column: 2 / 5;
+  grid-row: 1 / 2;
+  min-height: 400px;
+}
+
+.smallLeft {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  min-height: 320px;
+  align-self: start;
+  position: sticky;
+  top: 96px;
+  z-index: 5;
+  background: inherit;
+}
+
+/* Accordion styles */
+.accordion {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.accordion details {
+  padding: 24px 0;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.accordion summary {
+  cursor: pointer;
+  color: #000;
+  font-family: Inter;
+  font-size: clamp(24px, 2vw, 32px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 48px */
+  letter-spacing: clamp(-0.96px, -1vw, -0.5px);
+}
+
+/* layout the question row and place icon to the right */
+.accordion summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+/* hide the browser default disclosure marker */
+summary::-webkit-details-marker {
+  display: none;
+}
+summary { list-style: none; }
+
+.icon {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  margin-left: 24px;
+}
+
+.icon svg {
+  position: absolute;
+  inset: 0;
+  width: 32px;
+  height: 32px;
+  transition: opacity 220ms cubic-bezier(.2,.9,.3,1), transform 220ms cubic-bezier(.2,.9,.3,1);
+  will-change: opacity, transform;
+}
+
+.icon .open { opacity: 0; transform: translateY(-6px) scale(.98); }
+details[open] .icon .open { opacity: 1; transform: translateY(0) scale(1); }
+.icon .closed { opacity: 1; transform: translateY(0) scale(1); }
+details[open] .icon .closed { opacity: 0; transform: translateY(6px) scale(.98); }
+
+/* Constrain question and body widths */
+.accordion summary > span {
+  max-width: 900px;
+  display: block;
+  overflow-wrap: break-word;
+}
+
+.accordion p {
+  max-width: 800px;
+  color: #333;
+  display: block;
+  box-sizing: border-box;
+}
+
+
+.heading{
+  color: #212121;
+  font-family: Inter;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 138%; /* 44.16px */
+  letter-spacing: -0.96px;
+}
+
+/* Make the heading sticky with a 96px top offset */
+.heading {
+  position: sticky;
+  top: 96px;
+  z-index: 5;
+  align-self: flex-start;
+  background: inherit;
+}
+
+@media (max-width: 1024px) {
+  .wrap {
+    padding: 40px 32px;
+  }
+  .container {
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  .smallLeft {
+    position: static;
+    top: unset;
+    z-index: unset;
+    background: inherit;
+    min-height: 180px;
+    margin-bottom: 24px;
+  }
+  .largeOnRight {
+    min-height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrap {
+    padding: 40px 40px;
+    padding-top: 80px;
+  }
+  .container {
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  .smallLeft {
+    position: static;
+    top: unset;
+    z-index: unset;
+    background: inherit;
+    min-height: 120px;
+    margin-bottom: 18px;
+  }
+  .largeOnRight {
+    min-height: 120px;
+  }
+  .heading {
+    font-size: clamp(24px, 6vw, 32px);
+    line-height: 130%;
+    letter-spacing: -0.5px;
+  }
+}
+
+@media (max-width: 425px) {
+  .wrap {
+    padding: 40px 20px;
+  }
+  .container {
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  .smallLeft {
+    position: static;
+    top: unset;
+    z-index: unset;
+    background: inherit;
+    min-height: 120px;
+    margin-bottom: 18px;
+  }
+  .largeOnRight {
+    min-height: 120px;
+  }
+  .heading {
+    font-size: clamp(24px, 6vw, 32px);
+    line-height: 130%;
+    letter-spacing: -0.5px;
+  }
+}
+
+@media (max-width: 425px) {
+  .accordion summary {
+    gap: 12px;
+    align-items: center;
+    min-height: 48px;
+  }
+  .icon {
+    width: 28px;
+    height: 28px;
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+  }
+  .icon svg {
+    width: 28px;
+    height: 28px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    position: relative;
+  }
+}

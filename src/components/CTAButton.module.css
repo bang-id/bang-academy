@@ -1,0 +1,85 @@
+.wrap {
+	width: 100%;
+}
+
+.inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	padding: 96px 60px;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	color: #212121;
+	transition: background 160ms ease, color 160ms ease;
+}
+
+/* .inner:focus {
+	outline: 3px solid rgba(0,0,0,0.12);
+	outline-offset: 2px;
+} */
+
+.inner:hover {
+	background: #000;
+	color: #fff;
+}
+
+.text {
+	font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+	font-size: clamp(80px, 12vw, 176.861px);
+	font-style: normal;
+	font-weight: 400;
+	line-height: 103%;
+	letter-spacing: clamp(-8px, 5vw, -10.612px);
+  text-align: left;
+}
+
+.text,
+.svgBox svg {
+	transition: color 160ms ease, stroke 160ms ease, fill 160ms ease;
+}
+
+.svgBox {
+	display: flex;
+	width: clamp(150px, 30vw, 303.909px);
+	height: auto;
+	padding: 52.967px 48.293px 52.966px 48.292px;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+}
+
+.svgBox svg {
+	/* allow the svg to pick up currentColor for stroke */
+	color: inherit;
+}
+
+@media (max-width: 768px) {
+	.inner {
+		background: #000;
+		color: #fff;
+		padding: 96px 40px;
+	}
+}
+
+@media (max-width: 450px) {
+	.inner {
+		flex-direction: column;
+		padding: 120px 20px;
+		gap: 80px;
+    align-items: flex-start;
+	}
+
+	.text {
+		text-align: left;
+		font-size: clamp(42px, 24vw, 80px);
+    letter-spacing: clamp(-6px, -2vw, -4px);
+	}
+
+	.svgBox {
+		width: clamp(150px, 25vw, 300px);
+		height: auto;
+    padding: 8px;
+	}
+}

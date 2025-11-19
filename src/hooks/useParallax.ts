@@ -18,6 +18,7 @@ export default function useParallax({ speed = 0.9, direction = 'up' }: UseParall
       const elementTop = rect.top
       const windowHeight = window.innerHeight
 
+
       // Calculate how far into the viewport the element is (0 = top, 1 = bottom)
       const elementProgress = (windowHeight - elementTop) / (windowHeight + rect.height)
 

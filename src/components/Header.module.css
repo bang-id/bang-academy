@@ -11,6 +11,12 @@
   backdrop-filter: blur(20px);
   box-sizing: border-box;
   z-index: 40;
+  transition: opacity 300ms ease, visibility 300ms ease;
+}
+
+.root.hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .inner {
@@ -64,6 +70,7 @@
   border: 1px solid #000;
   background: none;
   transition: background 160ms ease, color 160ms ease;
+  text-decoration: none;
 }
 
 .cta:hover {

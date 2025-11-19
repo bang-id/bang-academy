@@ -98,15 +98,15 @@ export default function MediaGrid(){
           <div className={styles.grid}>
 
             {/* small image on left */}
-            <figure className={styles.smallLeft}>
-              <img src={surface} alt="Procreate sketch"/>
+            <figure className={styles.largeOnRight}>
+              <img src={tejashelmet} alt="Procreate sketch"/>
               <figcaption className={styles.caption}>Procreate sketch.<br/><a href='https://www.linkedin.com/in/tejas-mitra-036b43216/' target="_blank" rel="noopener noreferrer" style={{color: 'inherit', textDecoration: 'none'}}>
                 Tejas Mitra</a></figcaption>
             </figure>
 
             {/* large image on right (2/3 width) */}
-            <figure className={styles.largeOnRight}>
-              <img src={tejashelmet} alt="Keyshot render"/>
+            <figure className={styles.smallLeft}>
+              <img src={surface} alt="Keyshot render"/>
               <figcaption className={styles.caption}>Surfacing using Rhino on Creo.<br/><a href='https://www.instagram.com/dipanshu.raut8/' target="_blank" rel="noopener noreferrer" style={{color: 'inherit', textDecoration: 'none'}}>
                 Dipanshu Raut</a></figcaption>
               </figure>

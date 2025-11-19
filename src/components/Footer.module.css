@@ -86,7 +86,7 @@
 
 /* rotate helper for specific arrow icons */
 .rotate {
-  transform: rotate(45deg);
+  transform: rotate(-45deg);
   transform-origin: center;
   display: inline-block;
   transition: transform 180ms ease;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './InfoSection.module.css'
 import FadeIn from './FadeIn'
 
@@ -20,11 +20,18 @@ export default function InfoSection(){
       openings: '3',
       price: 'INR 7,000/mo for 4 months',
     },
-    'Digital Brand Experience Design': {
-      who: 'Design or communication students in their final semester or recent graduates passionate about digital interfaces, web design, and brand expression. You want to understand how design systems and strategy work together.',
-      what: 'Master the full spectrum of digital design—from strategy to execution. Learn design systems, accessibility, motion design, and how to collaborate with developers and stakeholders.\n\nOver 18 weeks, you\'ll work on real client projects involving website redesigns, app interfaces, brand guidelines, and digital experiences. You\'ll use industry tools, learn responsive design best practices, and understand how to scale design solutions.',
+    'Content Writing': {
+      who: 'This program is for final-semester students or recent graduates in English, communications, journalism, marketing, or related fields who want to become confident, versatile writers. You’re ready to strengthen your storytelling, refine your voice, and learn how to write for digital platforms, brands, and conversion. Ideal if you want hands-on experience creating articles, scripts, emails, landing pages, and social content that engages, ranks, and drives action.',
+      what: 'Strengthen your ability to craft compelling, high-performing content across digital channels.\n\n Over 18 weeks, you’ll work with real companies, editors, and marketing teams to produce articles, scripts, emails, social posts, website copy, and narratives that engage audiences and drive measurable outcomes. You’ll learn the full process: research, interviewing, outlining, drafting, editing, SEO optimization, storytelling frameworks, and brand voice adaptation.\n\nYou’ll collaborate closely with stakeholders, incorporate real feedback cycles, and present your work to decision-makers. With guidance from experienced writers and content strategists, you’ll build a polished, versatile writing portfolio, sharpen your editorial judgment, and graduate ready for roles in content marketing, copywriting, journalism, or brand storytelling.',
       get: 'A certificate of completion.\nWork samples that you can include in your portfolio*.\nA global studio experience working with real businesses from around the world.\nHands-on experience with modern design tools and workflows.\nNetworking with designers and strategists from global companies.\n\n*Subject to NDAs with customers',
-      openings: '2',
+      openings: '1',
+      price: 'INR 7,000/mo for 4 months',
+    },
+    'Graphic Design': {
+      who: 'This program is for current design students in their final semester or early-career creatives who want to sharpen their visual communication skills. You’re looking to expand your portfolio, improve your mastery of design tools, and learn how to bring concepts to life across branding, marketing, and digital media. Perfect if you want practical, industry-ready experience creating graphics, layouts, campaigns, and visual systems that stand out and scale.',
+      what: 'Develop the visual communication skills modern creative teams rely on, while working on real design challenges from businesses and startups.\n\nAcross 18 weeks, you’ll build expertise in layout, typography, colour systems, branding, visual hierarchy, image-making, and digital design using industry tools like Adobe Creative Suite and Figma. You’ll create campaigns, social graphics, brand assets, and multi-platform visuals that balance creativity with strategic intent.\n\nThroughout the program, you’ll collaborate with clients and creative directors, iterate through critiques, and bring ideas to life through refined design systems. Guided by seasoned designers and art directors, you’ll graduate with a professional portfolio, strong visual judgment, and the confidence to step into roles in branding, graphic design, marketing design, or digital creative work.',
+      get: 'A certificate of completion.\nWork samples that you can include in your portfolio*.\nA global studio experience working with real businesses from around the world.\nHands-on experience with modern design tools and workflows.\nNetworking with designers and strategists from global companies.\n\n*Subject to NDAs with customers',
+      openings: '1',
       price: 'INR 7,000/mo for 4 months',
     },
     'Demand Generation': {
@@ -38,9 +45,34 @@ export default function InfoSection(){
 
   const handlePillClick = (pill) => {
     setSelectedPill(pill)
+    // dispatch the selected apply link so the CTAButton (sibling) can update
+    const applyLinks: Record<string, string> = {
+      'Industrial Design': 'https://forms.gle/Vaq248XZD8n8Ankp8',
+      'Design Engineering': 'https://forms.gle/WhzAUkry7R3r6jaC8',
+      'Content Writing': 'https://forms.gle/LBKwp3xgNExBPuNB6',
+      'Graphic Design': 'https://forms.gle/PtVEYYiFKCMpiwrn6',
+      'Demand Generation': 'https://forms.gle/7ge6JCHHSoTaCZnC9'
+    }
+    const href = applyLinks[pill] || 'https://www.bangid.com/apply'
+    ;(window as any).__applyCTALink = href
+    window.dispatchEvent(new CustomEvent('apply-link-change', { detail: { href } }))
   }
 
   const content = specialtyContent[selectedPill] || specialtyContent['Industrial Design']
+
+  useEffect(() => {
+    // dispatch initial link for CTAButton
+    const applyLinks: Record<string, string> = {
+      'Industrial Design': 'https://forms.gle/Vaq248XZD8n8Ankp8',
+      'Design Engineering': 'https://forms.gle/WhzAUkry7R3r6jaC8',
+      'Content Writing': 'https://forms.gle/LBKwp3xgNExBPuNB6',
+      'Graphic Design': 'https://forms.gle/PtVEYYiFKCMpiwrn6',
+      'Demand Generation': 'https://forms.gle/7ge6JCHHSoTaCZnC9'
+    }
+    const href = applyLinks[selectedPill] || 'https://www.bangid.com/apply'
+    ;(window as any).__applyCTALink = href
+    window.dispatchEvent(new CustomEvent('apply-link-change', { detail: { href } }))
+  }, [])
 
   return (
     <section className={styles.wrap}>
@@ -65,10 +97,18 @@ export default function InfoSection(){
           </FadeIn>
                     <FadeIn>
             <span
-              className={`${styles.pill} ${selectedPill === 'Digital Brand Experience Design' ? styles.selected : ''}`}
-              onClick={() => handlePillClick('Digital Brand Experience Design')}
+              className={`${styles.pill} ${selectedPill === 'Content Writing' ? styles.selected : ''}`}
+              onClick={() => handlePillClick('Content Writing')}
             >
-              Digital Brand Experience Design (2)
+              Content Writing (1)
+            </span>
+          </FadeIn>
+                    <FadeIn>
+            <span
+              className={`${styles.pill} ${selectedPill === 'Graphic Design' ? styles.selected : ''}`}
+              onClick={() => handlePillClick('Graphic Design')}
+            >
+              Graphic Design (1)
             </span>
           </FadeIn>
                     <FadeIn>
@@ -130,7 +170,7 @@ export default function InfoSection(){
 
           <FadeIn noTranslate noScale>
             <div className={styles.rows}>
-              <div className={styles.rowLabel}>Price</div>
+              <div className={styles.rowLabel}>What you pay</div>
               <div className={styles.rowContent}>{content.price}</div>
             </div>
           </FadeIn>

@@ -93,7 +93,7 @@ body {
   cursor: pointer;
   color: #000;
   font-family: Inter;
-  font-size: clamp(24px, 2vw, 32px);
+  font-size: clamp(24px, 2vw, 28px);
   font-style: normal;
   font-weight: 400;
   line-height: 150%; /* 48px */
@@ -106,6 +106,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 32px;
+  max-width: clamp(900px, 100vw, 1400px);
 }
 
 /* hide the browser default disclosure marker */
@@ -137,7 +138,7 @@ details[open] .icon .closed { opacity: 0; transform: translateY(6px) scale(.98);
 
 /* Constrain question and body widths */
 .accordion summary > span {
-  max-width: 900px;
+  max-width: 800px;
   display: block;
   overflow-wrap: break-word;
 }
@@ -153,7 +154,7 @@ details[open] .icon .closed { opacity: 0; transform: translateY(6px) scale(.98);
 .heading{
   color: #212121;
   font-family: Inter;
-  font-size: 32px;
+  font-size:  clamp(20px, 1.8vw, 28px);
   font-style: normal;
   font-weight: 400;
   line-height: 138%; /* 44.16px */
@@ -263,5 +264,9 @@ details[open] .icon .closed { opacity: 0; transform: translateY(6px) scale(.98);
     bottom: 0;
     margin: auto;
     position: relative;
+  }
+
+  .heading{
+    padding: 0px;
   }
 }

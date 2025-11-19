@@ -23,6 +23,7 @@
 .inner:hover {
 	background: #000;
 	color: #fff;
+	text-decoration: underline;
 }
 
 .text {
@@ -32,7 +33,8 @@
 	font-weight: 400;
 	line-height: 103%;
 	letter-spacing: clamp(-8px, 5vw, -10.612px);
-  text-align: left;
+  	text-align: left;
+	text-decoration: none;
 }
 
 .text,

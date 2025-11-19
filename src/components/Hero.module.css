@@ -8,7 +8,7 @@
   justify-content: flex-start;
   width: 100%;
   height: 150vh;
-  padding-top: 160px;
+  padding-top: clamp(100px, 10vw, 160px);
   padding-left: clamp(120px, 10vw, 450px);
   padding-right: clamp(120px, 10vw, 450px);
 }
@@ -37,7 +37,7 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  height: clamp(900px, 60vh, 1200px);
+  height: clamp(500px, 80vh, 1200px);
   pointer-events: none;
   transform: translateY(clamp(-180px, -10vw, -320px));
   z-index: 1;
@@ -79,6 +79,7 @@
 
   .bgImage {
     height: clamp(400px, 90vh, 600px);
+    z-index: 0;
   }
   .bgImage > div {
     width: 100%;
@@ -102,6 +103,13 @@
     min-height: 100vh;
   }
 
+  /* Strong mobile-only override: ensure the title overlaps the background
+     even if inline styles or scripts set position/stacking. */
+  .title {
+    position: relative !important;
+    z-index: 9999 !important;
+  }
+
   .heroInner {
     align-items: flex-start;
   }
@@ -112,6 +120,8 @@
     max-width: 100%;
     letter-spacing: -2.88px;
     line-height: 115%;
+    position: relative;
+    z-index: 2;
   }
 
   .bgImage {
@@ -134,4 +144,13 @@
         padding-left: 24px;
         padding-right: 24px;
     }
+
+  .heroInner {
+    z-index: 10 !important;
+    position: relative;
+  }
+
+  .bgImage{
+    z-index: 0 !important;
+  }
 }

@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './Footer.module.css'
 import infoStyles from './InfoSection.module.css'
 
 export default function Footer(){
+  const [applyLink, setApplyLink] = useState('https://forms.gle/Vaq248XZD8n8Ankp8')
+
+  useEffect(() => {
+    const handler = (ev: Event) => {
+      try {
+        const detail = (ev as CustomEvent).detail
+        if (detail && typeof detail.href === 'string') setApplyLink(detail.href)
+      } catch (err) {
+        // ignore
+      }
+    }
+    window.addEventListener('apply-link-change', handler as EventListener)
+    return () => window.removeEventListener('apply-link-change', handler as EventListener)
+  }, [])
   return (
     <footer className={styles.wrap}>
       <div className={styles.grid}>
@@ -15,21 +29,21 @@ export default function Footer(){
               <br /><br /> <span style= {{color: '#ff0000'}}>Applications close on Dec 15.</span>
             </div>
 
-            <button className={styles.btn} type="button">
+            <a className={styles.btn} href={applyLink} target="_blank" rel="noopener noreferrer">
               <span>Apply Now</span>
               <svg className={styles.arrow} viewBox="0 0 216 207" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="28" aria-hidden="true">
-                <path d="M108.341 4.19165L207.325 103.175" stroke="currentColor" strokeWidth="11.8557" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M207.325 103.175L108.341 202.158" stroke="currentColor" strokeWidth="11.8557" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M207.325 103.175L0 103.175" stroke="currentColor" strokeWidth="11.8557" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M108.341 4.19165L207.325 103.175" stroke="currentColor" strokeWidth="20" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M207.325 103.175L108.341 202.158" stroke="currentColor" strokeWidth="20" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M207.325 103.175L0 103.175" stroke="currentColor" strokeWidth="20" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-            </button>
+            </a>
 
-            <a className={styles.btn} href="https://www.bangid.com" target="_blank" rel="noopener noreferrer" textDecoration="none">
+            <a className={styles.btn} href="https://www.bangid.com" target="_blank" rel="noopener noreferrer">
               <span>Visit Us</span>
               <svg className={`${styles.arrow} ${styles.rotate}`} viewBox="0 0 216 207" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="28" aria-hidden="true">
-                <path d="M108.341 4.19165L207.325 103.175" stroke="currentColor" strokeWidth="11.8557" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M207.325 103.175L108.341 202.158" stroke="currentColor" strokeWidth="11.8557" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M207.325 103.175L0 103.175" stroke="currentColor" strokeWidth="11.8557" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M108.341 4.19165L207.325 103.175" stroke="currentColor" strokeWidth="20" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M207.325 103.175L108.341 202.158" stroke="currentColor" strokeWidth="20" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M207.325 103.175L0 103.175" stroke="currentColor" strokeWidth="20" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </a>
           </div>

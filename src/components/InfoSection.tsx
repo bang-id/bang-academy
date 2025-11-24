@@ -171,7 +171,7 @@ export default function InfoSection(){
           <FadeIn noTranslate noScale>
             <div className={styles.rows}>
               <div className={styles.rowLabel}>What you pay</div>
-              <div className={styles.rowContent}>{content.price}</div>
+              <div className={styles.rowContent} style={{ textDecoration: "underline" }}>{content.price}</div>
             </div>
           </FadeIn>
           <div className={styles.separator}><span className={styles.separatorBar} /></div>
